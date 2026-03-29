@@ -1,6 +1,6 @@
 _addon.name = 'chocodig'
 _addon.author = 'VelnerXI'
-_addon.version = '3.2'
+_addon.version = '3.3'
 _addon.commands = {'chocodig', 'cdig'}
 
 local texts = require('texts')
