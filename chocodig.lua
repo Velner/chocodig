@@ -507,9 +507,18 @@ windower.register_event('incoming text', function(original, modified, original_m
         return
     end
 
-    if original:match('^Obtained:') then
+    local obtained_item = original:match('^Obtained:')
+    local beastman_cache = original:match('^You discover a cache of beastman resources and receive %d+ conquest points%.$')
+
+    if obtained_item or beastman_cache then
         success_count = success_count + 1
-        log(('Successful dig! Success count: %d'):format(success_count))
+
+        if beastman_cache then
+            log(('Successful dig! Beastman resource cache found. Success count: %d'):format(success_count))
+        else
+            log(('Successful dig! Success count: %d'):format(success_count))
+        end
+
         update_status_box()
 
         if success_count >= MAX_SUCCESS_DIGS then
