@@ -508,7 +508,7 @@ windower.register_event('incoming text', function(original, modified, original_m
     end
 
     local obtained_item = original:match('^Obtained:')
-    local beastman_cache = original:match('^You discover a cache of beastman resources and receive %d+ conquest points%.$')
+    local beastman_cache = original:match('^You discover a cache of beastman resources')
 
     if obtained_item or beastman_cache then
         success_count = success_count + 1
